@@ -1,11 +1,5 @@
 ## Usage
 
-```html
-<script>
-jsType.get()...
-</script>
-```
-
 ```js
 import jsType from 'js-type';
 ```
