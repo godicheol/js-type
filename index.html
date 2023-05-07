@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index.html</title>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        html,body,h1,h2,h3,h4,h5,h6,p,span,ul,ol,li,table,thead,tbody,tr,th,td{
+            margin: 0; padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="./index.js"></script>
+    <script>
+
+        // jsType.get
+
+        console.log(jsType.get(undefined));
+        console.log(jsType.get(null));
+        console.log(jsType.get(false));
+        console.log(jsType.get(0));
+        console.log(jsType.get("0"));
+        console.log(jsType.get([1,2,3]));
+        console.log(jsType.get({G: 1}));
+        console.log(jsType.get(new Date()));
+        console.log(jsType.get(new RegExp()));
+        console.log(jsType.get(function(){}));
+
+        // validators
+
+        console.log(jsType.isBoolean(false));
+        console.log(jsType.isBoolean(0));
+        console.log(jsType.isBoolean("false"));
+
+        console.log(jsType.isNumber(false));
+        console.log(jsType.isNumber(0));
+        console.log(jsType.isNumber("0"));
+        console.log(jsType.isNumber(new Date()));
+
+        console.log(jsType.isString(false));
+        console.log(jsType.isString(0));
+        console.log(jsType.isString("text"));
+        console.log(jsType.isString(/ff/));
+        console.log(jsType.isString(new Date()));
+
+        console.log(jsType.isObject('{\"g\": 1}'));
+        console.log(jsType.isObject({g: 1}));
+
+        console.log(jsType.isArray('[0, 1]'));
+        console.log(jsType.isArray([0, 1]));
+
+        console.log(jsType.isNull("null"));
+        console.log(jsType.isNull(null));
+        
+        console.log(jsType.isUndefined("undefined"));
+        console.log(jsType.isUndefined(undefined));
+
+        console.log(jsType.isFunction(function(){}));
+
+        console.log(jsType.isRegExp("/google/gi"));
+        console.log(jsType.isRegExp(/google/gi));
+        
+        console.log(jsType.isDate(0));
+        console.log(jsType.isDate("Thu Jan 01 1970 00:00:00"));
+        console.log(jsType.isDate(new Date()));
+
+        // converter
+
+        console.log(jsType.toBoolean(false));
+        console.log(jsType.toBoolean(0));
+        console.log(jsType.toBoolean("false"));
+
+        console.log(jsType.toNumber(false));
+        console.log(jsType.toNumber(0));
+        console.log(jsType.toNumber("0"));
+        console.log(jsType.toNumber(new Date(0)));
+
+        console.log(jsType.toString(false));
+        console.log(jsType.toString(0));
+        console.log(jsType.toString("text"));
+        console.log(jsType.toString(/google/gi));
+        console.log(jsType.toString(new Date()));
+
+        console.log(jsType.toObject('{\"g\": 1}'));
+        console.log(jsType.toObject({g: 1}));
+
+        console.log(jsType.toArray('[0, 1]'));
+        console.log(jsType.toArray([0, 1]));
+
+        console.log(jsType.toNull("null"));
+        console.log(jsType.toNull(null));
+        
+        console.log(jsType.toUndefined("undefined"));
+        console.log(jsType.toUndefined(undefined));
+
+        console.log(jsType.toFunction(function(){}));
+
+        console.log(jsType.toRegExp("/google/gi"));
+        console.log(jsType.toRegExp(/google/gi));
+        
+        console.log(jsType.toDate(0));
+        console.log(jsType.toDate("Thu Jan 01 1970 00:00:00"));
+        console.log(jsType.toDate(new Date(0)));
+
+    </script>
+</body>
+
+</html>
