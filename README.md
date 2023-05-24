@@ -22,79 +22,163 @@ jsType.get(function(){}); // "function"
 - Validate
 
 ```js
-jsType.isBoolean(false); // true
-jsType.isBoolean(0); // true
-jsType.isBoolean("false"); // true
+var strict = false;
 
-jsType.isNumber(false); // true
-jsType.isNumber(0); // true
-jsType.isNumber("0"); // true
-jsType.isNumber(new Date()); // true
+jsType.isBoolean(false, strict); // true
+jsType.isBoolean(0, strict); // true
+jsType.isBoolean("false", strict); // true
 
-jsType.isString(false); // true
-jsType.isString(0); // true
-jsType.isString("text"); // true
-jsType.isString(/ff/); // true
-jsType.isString(new Date(0)); // true
+jsType.isNumber(false, strict); // true
+jsType.isNumber(0, strict); // true
+jsType.isNumber("0", strict); // true
+jsType.isNumber(new Date(), strict); // true
 
-jsType.isObject('{\"g\": 1}'); // true
-jsType.isObject({g: 1}); // true
+jsType.isString(false, strict); // true
+jsType.isString(0, strict); // true
+jsType.isString("text", strict); // true
+jsType.isString(/ff/, strict); // true
+jsType.isString(new Date(0), strict); // true
 
-jsType.isArray('[0, 1]'); // true
-jsType.isArray([0, 1]); // true
+jsType.isObject('{\"g\": 1}', strict); // true
+jsType.isObject({g: 1}, strict); // true
 
-jsType.isNull("null"); // true
-jsType.isNull(null); // true
+jsType.isArray('[0, 1]', strict); // true
+jsType.isArray([0, 1], strict); // true
 
-jsType.isUndefined("undefined"); // true
-jsType.isUndefined(undefined); // true
+jsType.isNull("null", strict); // true
+jsType.isNull(null, strict); // true
 
-jsType.isFunction(function(){}); // true
+jsType.isUndefined("undefined", strict); // true
+jsType.isUndefined(undefined, strict); // true
 
-jsType.isRegExp("/google/gi"); // true
-jsType.isRegExp(/google/gi); // true
+jsType.isFunction(function(){}, strict); // true
 
-jsType.isDate(0); // true
-jsType.isDate("Thu Jan 01 1970 00:00:00"); // true
-jsType.isDate(new Date()); // true
+jsType.isRegExp("/google/gi", strict); // true
+jsType.isRegExp(/google/gi, strict); // true
+
+jsType.isDate(0, strict); // true
+jsType.isDate("Thu Jan 01 1970 00:00:00", strict); // true
+jsType.isDate(new Date(), strict); // true
+```
+
+```js
+var strict = true;
+
+jsType.isBoolean(false, strict); // true
+jsType.isBoolean(0, strict); // false
+jsType.isBoolean("false", strict); // false
+
+jsType.isNumber(false, strict); // false
+jsType.isNumber(0, strict); // true
+jsType.isNumber("0", strict); // false
+jsType.isNumber(new Date(), strict); // false
+
+jsType.isString(false, strict); // false
+jsType.isString(0, strict); // false
+jsType.isString("text", strict); // true
+jsType.isString(/ff/, strict); // false
+jsType.isString(new Date(0), strict); // false
+
+jsType.isObject('{\"g\": 1}', strict); // false
+jsType.isObject({g: 1}, strict); // true
+
+jsType.isArray('[0, 1]', strict); // false
+jsType.isArray([0, 1], strict); // true
+
+jsType.isNull("null", strict); // false
+jsType.isNull(null, strict); // true
+
+jsType.isUndefined("undefined", strict); // false
+jsType.isUndefined(undefined, strict); // true
+
+jsType.isFunction(function(){}, strict); // true
+
+jsType.isRegExp("/google/gi", strict); // false
+jsType.isRegExp(/google/gi, strict); // true
+
+jsType.isDate(0, strict); // false
+jsType.isDate("Thu Jan 01 1970 00:00:00", strict); // false
+jsType.isDate(new Date(), strict); // true
 ```
 
 - Convert
 
 ```js
-jsType.toBoolean(false); // false
-jsType.toBoolean(0); // false
-jsType.toBoolean("false"); // false
+var strict = false;
 
-jsType.toNumber(false); // 0
-jsType.toNumber(0); // 0
-jsType.toNumber("0"); // 0
-jsType.toNumber(new Date(0)); // 0
+jsType.toBoolean(false, strict); // false
+jsType.toBoolean(0, strict); // false
+jsType.toBoolean("false", strict); // false
 
-jsType.toString(false); // "false"
-jsType.toString(0); // "0"
-jsType.toString("text"); // "text"
-jsType.toString(/google/gi); // "/google/gi"
-jsType.toString(new Date(0)); // "Thu Jan 01 1970 00:00:00"
+jsType.toNumber(false, strict); // 0
+jsType.toNumber(0, strict); // 0
+jsType.toNumber("0", strict); // 0
+jsType.toNumber(new Date(0), strict); // 0
 
-jsType.toObject('{\"g\": 1}'); // {g: 1}
-jsType.toObject({g: 1}); // {g: 1}
+jsType.toString(false, strict); // "false"
+jsType.toString(0, strict); // "0"
+jsType.toString("text", strict); // "text"
+jsType.toString(/google/gi, strict); // "/google/gi"
+jsType.toString(new Date(0), strict); // "Thu Jan 01 1970 00:00:00"
 
-jsType.toArray('[0, 1]'); // [0, 1]
-jsType.toArray([0, 1]); // [0, 1]
+jsType.toObject('{\"g\": 1}', strict); // {g: 1}
+jsType.toObject({g: 1}, strict); // {g: 1}
 
-jsType.toNull("null"); // null
-jsType.toNull(null); // null
+jsType.toArray('[0, 1]', strict); // [0, 1]
+jsType.toArray([0, 1], strict); // [0, 1]
 
-jsType.toUndefined("undefined"); // undefined
-jsType.toUndefined(undefined); // undefined
+jsType.toNull("null", strict); // null
+jsType.toNull(null, strict); // null
 
-jsType.toFunction(function(){}); // function(){}
+jsType.toUndefined("undefined", strict); // undefined
+jsType.toUndefined(undefined, strict); // undefined
 
-jsType.toRegExp("/google/gi"); // /google/gi
-jsType.toRegExp(/google/gi); // /google/gi
+jsType.toFunction(function(){}, strict); // function(){}
 
-jsType.toDate(0); // Date()
-jsType.toDate("Thu Jan 01 1970 00:00:00"); // Date()
-jsType.toDate(new Date(0)); // Date()
+jsType.toRegExp("/google/gi", strict); // /google/gi
+jsType.toRegExp(/google/gi, strict); // /google/gi
+
+jsType.toDate(0, strict); // Date()
+jsType.toDate("Thu Jan 01 1970 00:00:00", strict); // Date()
+jsType.toDate(new Date(0), strict); // Date()
+```
+
+```js
+var strict = true;
+
+jsType.toBoolean(false, strict); // error
+jsType.toBoolean(0, strict); // error
+jsType.toBoolean("false", strict); // false
+
+jsType.toNumber(false, strict); // error
+jsType.toNumber(0, strict); // 0
+jsType.toNumber("0", strict); // error
+jsType.toNumber(new Date(0), strict); // error
+
+jsType.toString(false, strict); // error
+jsType.toString(0, strict); // error
+jsType.toString("text", strict); // "text"
+jsType.toString(/google/gi, strict); // error
+jsType.toString(new Date(0), strict); // error
+
+jsType.toObject('{\"g\": 1}', strict); // error
+jsType.toObject({g: 1}, strict); // {g: 1}
+
+jsType.toArray('[0, 1]', strict); // error
+jsType.toArray([0, 1], strict); // [0, 1]
+
+jsType.toNull("null", strict); // error
+jsType.toNull(null, strict); // null
+
+jsType.toUndefined("undefined", strict); // error
+jsType.toUndefined(undefined, strict); // undefined
+
+jsType.toFunction(function(){}, strict); // function(){}
+
+jsType.toRegExp("/google/gi", strict); // error
+jsType.toRegExp(/google/gi, strict); // /google/gi
+
+jsType.toDate(0, strict); // error
+jsType.toDate("Thu Jan 01 1970 00:00:00", strict); // error
+jsType.toDate(new Date(0), strict); // Date()
 ```
