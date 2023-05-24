@@ -33,13 +33,15 @@
       case "boolean":
         return a;
       case "number":
-        if (!strict) {
-          return a === 1;
+        if (strict) {
+          throw new Error("Invalid argument type");
         }
+        return a === 1;
       case "string":
-        if (!strict) {
-          return a === "1" || a === "true";
+        if (strict) {
+          throw new Error("Invalid argument type");
         }
+        return a === "1" || a === "true";
       default:
         throw new Error("Invalid argument type");
     }
@@ -61,19 +63,22 @@
   var toNumber = function(a, strict) {
     switch (getType(a)) {
       case "boolean":
-        if (!strict) {
-          return a ? 1 : 0
-        };
+        if (strict) {
+          throw new Error("Invalid argument type");
+        }
+        return a ? 1 : 0;
       case "number":
         return a;
       case "string":
-        if (!strict) {
-          return parseFloat(a)
-        };
+        if (strict) {
+          throw new Error("Invalid argument type");
+        }
+        return parseFloat(a);
       case "date":
-        if (!strict) {
-          return a.valueOf()
-        };
+        if (strict) {
+          throw new Error("Invalid argument type");
+        }
+        return a.valueOf();
       default:
         throw new Error("Invalid argument type");
     }
@@ -97,23 +102,27 @@
   var toString = function(a, strict) {
     switch (getType(a)) {
       case "boolean":
-        if (!strict) {
-          return a ? "true" : "false"
-        };
+        if (strict) {
+          throw new Error("Invalid argument type");
+        }
+        return a ? "true" : "false";
       case "number":
-        if (!strict) {
-          return a.toString(10)
-        };
+        if (strict) {
+          throw new Error("Invalid argument type");
+        }
+        return a.toString(10)
       case "string":
         return a;
       case "regexp":
-        if (!strict) {
-          return a.toString()
-        };
+        if (strict) {
+          throw new Error("Invalid argument type");
+        }
+        return a.toString();
       case "date":
-        if (!strict) {
-          return a.toISOString()
-        };
+        if (strict) {
+          throw new Error("Invalid argument type");
+        }
+        return a.toISOString();
       default:
         throw new Error("Invalid argument type");
     }
@@ -138,9 +147,10 @@
   var toObject = function(a, strict) {
     switch (getType(a)) {
       case "string":
-        if (!strict) {
-          return JSON.parse(a)
-        };
+        if (strict) {
+          throw new Error("Invalid argument type");
+        }
+        return JSON.parse(a);
       case "object":
         return a;
       default:
@@ -167,9 +177,10 @@
   var toArray = function(a, strict) {
     switch (getType(a)) {
       case "string":
-        if (!strict) {
-          return JSON.parse(a)
-        };
+        if (strict) {
+          throw new Error("Invalid argument type");
+        }
+        return JSON.parse(a);
       case "array":
         return a;
       default:
@@ -205,9 +216,10 @@
   var toNull = function(a, strict) {
     switch (getType(a)) {
       case "string":
-        if (!strict) {
-          return null
-        };
+        if (strict) {
+          throw new Error("Invalid argument type");
+        }
+        return null;
       case "null":
         return a;
       default:
@@ -227,9 +239,10 @@
   var toUndefined = function(a, strict) {
     switch (getType(a)) {
       case "string":
-        if (!strict) {
-          return undefined
-        };
+        if (strict) {
+          throw new Error("Invalid argument type");
+        }
+        return undefined;
       case "undefined":
         return a;
       default:
@@ -250,14 +263,18 @@
   }
   var toDate = function(a, strict) {
     switch (getType(a)) {
-      case "number":
-        if (!strict) {
-          return new Date(a)
-        };
-      case "string":
-        if (!strict) {
-          return new Date(a)
-        };
+      case "number": {
+        if (strict) {
+          throw new Error("Invalid argument type");
+        }
+        return new Date(a);
+      }
+      case "string": {
+        if (strict) {
+          throw new Error("Invalid argument type");
+        }
+        return new Date(a);
+      }
       case "date":
         return a;
       default:
@@ -297,9 +314,10 @@
     }
     switch (getType(a)) {
       case "string":
-        if (!strict) {
-          return stringToRegExp(a)
-        };
+        if (strict) {
+          throw new Error("Invalid argument type");
+        }
+        return stringToRegExp(a);
       case "regexp":
         return a;
       default:

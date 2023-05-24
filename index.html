@@ -17,6 +17,7 @@
     <script src="./index.js"></script>
     <script>
 
+        var isStirctMode = true;
         // jsType.get
 
         console.log(jsType.get(undefined));
@@ -32,79 +33,80 @@
 
         // validators
 
-        console.log(jsType.isBoolean(false));
-        console.log(jsType.isBoolean(0));
-        console.log(jsType.isBoolean("false"));
+        console.log(jsType.isBoolean(false, isStirctMode));
+        console.log(jsType.isBoolean(0, isStirctMode));
+        console.log(jsType.isBoolean("false", isStirctMode));
 
-        console.log(jsType.isNumber(false));
-        console.log(jsType.isNumber(0));
-        console.log(jsType.isNumber("0"));
-        console.log(jsType.isNumber(new Date()));
+        console.log(jsType.isNumber(false, isStirctMode));
+        console.log(jsType.isNumber(0, isStirctMode));
+        console.log(jsType.isNumber("0", isStirctMode));
+        console.log(jsType.isNumber(new Date(), isStirctMode));
 
-        console.log(jsType.isString(false));
-        console.log(jsType.isString(0));
-        console.log(jsType.isString("text"));
-        console.log(jsType.isString(/ff/));
-        console.log(jsType.isString(new Date()));
+        console.log(jsType.isString(false, isStirctMode));
+        console.log(jsType.isString(0, isStirctMode));
+        console.log(jsType.isString("text", isStirctMode));
+        console.log(jsType.isString(/ff/, isStirctMode));
+        console.log(jsType.isString(new Date(), isStirctMode));
 
-        console.log(jsType.isObject('{\"g\": 1}'));
-        console.log(jsType.isObject({g: 1}));
+        console.log(jsType.isObject('{\"g\": 1}', isStirctMode));
+        console.log(jsType.isObject({g: 1}, isStirctMode));
 
-        console.log(jsType.isArray('[0, 1]'));
-        console.log(jsType.isArray([0, 1]));
+        console.log(jsType.isArray('[0, 1]', isStirctMode));
+        console.log(jsType.isArray([0, 1], isStirctMode));
 
-        console.log(jsType.isNull("null"));
-        console.log(jsType.isNull(null));
+        console.log(jsType.isNull("null", isStirctMode));
+        console.log(jsType.isNull(null, isStirctMode));
         
-        console.log(jsType.isUndefined("undefined"));
-        console.log(jsType.isUndefined(undefined));
+        console.log(jsType.isUndefined("undefined", isStirctMode));
+        console.log(jsType.isUndefined(undefined, isStirctMode));
 
-        console.log(jsType.isFunction(function(){}));
+        console.log(jsType.isFunction(function(){}, isStirctMode));
 
-        console.log(jsType.isRegExp("/google/gi"));
-        console.log(jsType.isRegExp(/google/gi));
+        console.log(jsType.isRegExp("/google/gi", isStirctMode));
+        console.log(jsType.isRegExp(/google/gi, isStirctMode));
         
-        console.log(jsType.isDate(0));
-        console.log(jsType.isDate("Thu Jan 01 1970 00:00:00"));
-        console.log(jsType.isDate(new Date()));
+        console.log(jsType.isDate(0, isStirctMode));
+        console.log(jsType.isDate("Thu Jan 01 1970 00:00:00", isStirctMode));
+        console.log(jsType.isDate(new Date(), isStirctMode));
 
         // converter
 
-        console.log(jsType.toBoolean(false));
-        console.log(jsType.toBoolean(0));
-        console.log(jsType.toBoolean("false"));
+        try { } catch(err) {console.error(err)}
+        try {console.log(jsType.toBoolean(false, isStirctMode));} catch(err) {console.error(err)}
+        try {console.log(jsType.toBoolean(0, isStirctMode));} catch(err) {console.error(err)}
+        try {console.log(jsType.toBoolean("false", isStirctMode));} catch(err) {console.error(err)}
 
-        console.log(jsType.toNumber(false));
-        console.log(jsType.toNumber(0));
-        console.log(jsType.toNumber("0"));
-        console.log(jsType.toNumber(new Date(0)));
+        try {console.log(jsType.toNumber(false, isStirctMode));} catch(err) {console.error(err)}
+        try {console.log(jsType.toNumber(0, isStirctMode));} catch(err) {console.error(err)}
+        try {console.log(jsType.toNumber("0", isStirctMode));} catch(err) {console.error(err)}
+        try {console.log(jsType.toNumber(new Date(0), isStirctMode));} catch(err) {console.error(err)}
 
-        console.log(jsType.toString(false));
-        console.log(jsType.toString(0));
-        console.log(jsType.toString("text"));
-        console.log(jsType.toString(/google/gi));
-        console.log(jsType.toString(new Date()));
+        try {console.log(jsType.toString(false, isStirctMode));} catch(err) {console.error(err)}
+        try {console.log(jsType.toString(0, isStirctMode));} catch(err) {console.error(err)}
+        try {console.log(jsType.toString("text", isStirctMode));} catch(err) {console.error(err)}
+        try {console.log(jsType.toString(/google/gi, isStirctMode));} catch(err) {console.error(err)}
+        try {console.log(jsType.toString(new Date(), isStirctMode));} catch(err) {console.error(err)}
 
-        console.log(jsType.toObject('{\"g\": 1}'));
-        console.log(jsType.toObject({g: 1}));
+        try {console.log(jsType.toObject('{\"g\": 1}', isStirctMode));} catch(err) {console.error(err)}
+        try {console.log(jsType.toObject({g: 1}, isStirctMode));} catch(err) {console.error(err)}
 
-        console.log(jsType.toArray('[0, 1]'));
-        console.log(jsType.toArray([0, 1]));
+        try {console.log(jsType.toArray('[0, 1]', isStirctMode));} catch(err) {console.error(err)}
+        try {console.log(jsType.toArray([0, 1], isStirctMode));} catch(err) {console.error(err)}
 
-        console.log(jsType.toNull("null"));
-        console.log(jsType.toNull(null));
-        
-        console.log(jsType.toUndefined("undefined"));
-        console.log(jsType.toUndefined(undefined));
+        try {console.log(jsType.toNull("null", isStirctMode));} catch(err) {console.error(err)}
+        try {console.log(jsType.toNull(null, isStirctMode));} catch(err) {console.error(err)}
 
-        console.log(jsType.toFunction(function(){}));
+        try {console.log(jsType.toUndefined("undefined", isStirctMode));} catch(err) {console.error(err)}
+        try {console.log(jsType.toUndefined(undefined, isStirctMode));} catch(err) {console.error(err)}
 
-        console.log(jsType.toRegExp("/google/gi"));
-        console.log(jsType.toRegExp(/google/gi));
-        
-        console.log(jsType.toDate(0));
-        console.log(jsType.toDate("Thu Jan 01 1970 00:00:00"));
-        console.log(jsType.toDate(new Date(0)));
+        try {console.log(jsType.toFunction(function(){}, isStirctMode));} catch(err) {console.error(err)}
+
+        try {console.log(jsType.toRegExp("/google/gi", isStirctMode));} catch(err) {console.error(err)}
+        try {console.log(jsType.toRegExp(/google/gi, isStirctMode));} catch(err) {console.error(err)}
+
+        try {console.log(jsType.toDate(0, isStirctMode));} catch(err) {console.error(err)}
+        try {console.log(jsType.toDate("Thu Jan 01 1970 00:00:00", isStirctMode));} catch(err) {console.error(err)}
+        try {console.log(jsType.toDate(new Date(0), isStirctMode));} catch(err) {console.error(err)}
 
     </script>
 </body>
